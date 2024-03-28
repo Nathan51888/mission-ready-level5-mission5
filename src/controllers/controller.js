@@ -8,7 +8,7 @@ async function getMessages(req, res) {
     await mongoose.connect(`mongodb://${mongoHost}:${mongoPort}/test`);
 
     const foundMessage = await Message.find()
-    console.log(foundMessage);
+    console.log(`Found ${foundMessage.length} messages`);
     res.send(foundMessage);
 
     mongoose.connection.close();
