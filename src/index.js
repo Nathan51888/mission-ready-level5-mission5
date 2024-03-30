@@ -7,7 +7,8 @@ app.use(express.json())
 
 const router = require('./routes/router.js');
 
-app.use('/', router);
+app.use('/api', router);
+app.get('/', (req, res) => res.send('backend is working!'));
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
