@@ -10,13 +10,28 @@ function initStations(req, res) {
 }
 
 async function getStations(req, res) {
-    const query = await listStations();
+    const service = req.query.service;
+    console.log(service);
+
+    if (!service) {
+        const query = await listAllStations();
+        res.send(query);
+        return;
+    }
+
+    const query = await filterByService(service);
     res.send(query);
 }
 
-async function listStations() {
+async function listAllStations() {
     const query = await StationModel.find();
     console.log(`found ${query.length}`);
+    return query;
+}
+
+async function filterByService(service) {
+    const query = await StationModel.find({ services: service});
+    console.log(query);
     return query;
 }
 
