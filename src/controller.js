@@ -34,21 +34,31 @@ const seed = [
     {
         name: "Z Royal Oak",
         location: "700 mount Albert Road, Royal Oak, Auckland",
-        services: ['carWash', 'evCharging', 'preOrderCoffee', 'food', 'engineOils', 'lpgBottleSwap', 'giftCards']
+        services: ['carWash', 'evCharging', 'preOrderCoffee', 'food', 'engineOils', 'lpgBottleSwap', 'giftCards'],
+        gas: 2.793,
     },
     {
         name: 'Z Ponsonby',
         location: '700 mount Albert Road, Royal Oak, Auckland',
-        services: ['carWash', 'evCharging']
+        services: ['carWash', 'evCharging'],
+        gas: 2.719,
     },
     {
         name: 'Z Sandringham',
         location: '700 mount Albert Road, Royal Oak, Auckland',
-        services: ['carWash', 'evCharging']
+        services: ['carWash', 'evCharging'],
+        gas: 2.873,
     },
     {
         name: 'Z MT Albert',
         location: '700 mount Albert Road, Royal Oak, Auckland',
-        services: ['carWash', 'evCharging']
+        services: ['carWash', 'evCharging'],
+        gas: 2.893,
+    },
+    {
+        name: 'Z Point Chev',
+        location: '700 mount Albert Road, Royal Oak, Auckland',
+        services: ['carWash', 'evCharging'],
+        gas: 2.912,
     }
 ]

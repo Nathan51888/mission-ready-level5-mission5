@@ -9,6 +9,7 @@ const stationSchema = new mongoose.Schema({
         type: [String],
         enum: ['carWash', 'evCharging', 'preOrderCoffee', 'food', 'engineOils', 'lpgBottleSwap', 'giftCards']
     },
+    gas: Number,
 });
 
 const StationModel = new mongoose.model('Station', stationSchema);
