@@ -1,7 +1,10 @@
 const mongoose = require('mongoose');
 const { StationModel } = require('./models');
 
-mongoose.connect('mongodb://localhost:27017/mission5');
+const mongoHost = process.env.MONGODB_SERVICE_HOST || 'localhost';
+const mongoPort = process.env.MONGODB_SERVICE_PORT || 27017;
+
+mongoose.connect(`mongodb://${mongoHost}:${mongoPort}/mission5`);
 
 async function getStations(req, res) {
     const query = await listAllStations();

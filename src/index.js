@@ -10,7 +10,7 @@ app.use(cors());
 
 // router
 const router = require('./router');
-app.use('/', router);
+app.use('/api', router);
 
 app.get('/', (req, res) => res.send("yay it's working"));
 
