@@ -1,0 +1,51 @@
+# https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  namespace: default
+  labels:
+    app: backend
+spec:
+  selector:
+    matchLabels:
+      app: backend
+  replicas: 3
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      annotations:
+        kubectl.kubernetes.io/default-container:  backend
+      labels:
+        app: backend
+    spec:
+      containers:
+      - name: backend
+        image: mission5-backend
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 3000
+          name: backend
+      restartPolicy: Always
+---
+# https://kubernetes.io/docs/concepts/services-networking/service/
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend
+  namespace: default
+spec:
+  selector:
+    app: backend
+  type: LoadBalancer
+  ports:
+  - name: backend
+    protocol: TCP
+    port: 3000
+    targetPort: 3000
+---
+
